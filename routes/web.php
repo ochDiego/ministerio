@@ -1,21 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\DocumentosIndex;
+use App\Http\Controllers\DocumentoController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', DocumentosIndex::class)->name('documentos.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/{documento}', [DocumentoController::class, 'show'])->name('documentos.show');
 
 Route::middleware([
     'auth:sanctum',
