@@ -309,6 +309,12 @@ return [
         ],
        
         [
+            'text' => 'Documentos',
+            'route'  => 'admin.documentos.index',
+            'icon' => 'fas fa-fw fa-user',
+            'active' => ['admin/documentos*'],
+        ],
+        [
             'text' => 'Instituciones (1ra)',
             'route'  => 'admin.organismos.index',
             'icon' => 'fas fa-fw fa-user',

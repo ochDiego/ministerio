@@ -21,6 +21,11 @@ class Documento extends Model
         'activo',
     ];
 
+    public function user():BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function vigencia():BelongsTo
     {
         return $this->belongsTo(Vigencia::class);

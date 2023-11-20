@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Documento;
@@ -10,10 +10,11 @@ use App\Models\Tema;
 use App\Models\TiposDocumento;
 use Livewire\WithPagination;
 
-
 class DocumentosIndex extends Component
 {
     use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public $organismoFilter;
     public $institucionFilter;
@@ -58,7 +59,7 @@ class DocumentosIndex extends Component
     {
         $this->resetPage();
     }
-    
+
     public function render()
     {
         $documentos = Documento::query()
@@ -77,11 +78,9 @@ class DocumentosIndex extends Component
                                 ->when($this->temaFilter, function($query) {
                                     $query->where('tema_id', $this->temaFilter);
                                 })
-                                ->where('activo',true)
                                 ->with('institucione','organismo','tema','tiposDocumento')
-                                ->orderByDesc('id')
                                 ->paginate(30);
 
-        return view('livewire.documentos-index',compact('documentos'));
+        return view('livewire.admin.documentos-index',compact('documentos'));
     }
 }

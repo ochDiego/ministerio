@@ -6,8 +6,14 @@ use App\Http\Controllers\Admin\OrganismoController;
 use App\Http\Controllers\Admin\InstitucioneController;
 use App\Http\Controllers\Admin\TemaController;
 use App\Http\Controllers\Admin\TiposDocumentoController;
+use App\Http\Controllers\Admin\DocumentoController;
+
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
+
+Route::resource('documentos', DocumentoController::class)->except('destroy')->names('admin.documentos');
+
+Route::get('documentos/{documento}/eliminar')->name('admin.documentos.delete');
 
 Route::resource('organismos', OrganismoController::class)->except('show','destroy')->names('admin.organismos');
 

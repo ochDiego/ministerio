@@ -22,6 +22,7 @@ class DocumentoFactory extends Factory
             'institucione_id' => rand(1,10),
             'tema_id' => rand(1,10),
             'vigencia_id' => rand(1,2),
+            'user_id' => rand(1,3),
             'fecha_suscripcion' => fake()->randomElement(['2016','2020','2021','2019','2017','2018'])
         ];
     }
