@@ -11,7 +11,7 @@
     {!! Form::label('slug', 'Slug:',) !!}
     {!! Form::text('slug', null, ['class' => 'form-control','placeholder' => 'Slug de la intitución','readonly']) !!}
 
-    @error('nombre')
+    @error('slug')
         <small class="text-danger">{{ $message }}</small>
     @enderror
 </div>

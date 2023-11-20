@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
+            $table->string('nombre',100);
             $table->string('slug')->unique();
 
             $table->boolean('activo')->default(true);
