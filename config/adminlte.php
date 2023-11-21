@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Ministerio</b>Educación',
+    'logo' => '<b>Min. de </b>Educación',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -130,11 +130,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -305,7 +305,7 @@ return [
         [
             'text'        => 'Panel',
             'url'         => 'admin.home',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa tachometer-alt fa-fw',
             'can'         => 'admin.home',
         ],
        
@@ -319,14 +319,14 @@ return [
         [
             'text' => 'Instituciones (1ra)',
             'route'  => 'admin.organismos.index',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa tachometer-alt fa-fw',
             'active' => ['admin/organismos*'],
             'can' => 'admin.organismos.index',
         ],
         [
             'text' => 'Instituciones (2da)',
             'route'  => 'admin.instituciones.index',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa tachometer-alt fa-fw',
             'active' => ['admin/instituciones*'],
             'can' => 'admin.instituciones.index',
         ],

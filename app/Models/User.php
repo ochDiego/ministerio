@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Documento::class);
     }
+
+    public function adminlte_profile_url()
+    {
+        return 'user/profile';
+    }
 }
