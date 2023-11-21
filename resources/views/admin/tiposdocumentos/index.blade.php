@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.tiposdocumentos.create') }}" role="button">
-        Nuevo tipo de documento
-    </a>
+    @can('admin.tiposdocumentos.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.tiposdocumentos.create') }}" role="button">
+            Nuevo tipo de documento
+        </a>
+    @endcan
 
     <h1>Lista de tipos de documento</h1>
 @stop

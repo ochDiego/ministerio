@@ -19,14 +19,18 @@
                             <td>{{ $organismo->nombre }}</td>
                             <td>{{ $organismo->representante }}</td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.organismos.edit',$organismo) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.organismos.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.organismos.edit',$organismo) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <a class="btn btn-danger btn-sm" href="{{ route('admin.organismos.delete',$organismo) }}" role="button">
-                                    Eliminar
-                                </a>
+                                @can('admin.organismos.delete')
+                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.organismos.delete',$organismo) }}" role="button">
+                                        Eliminar
+                                    </a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

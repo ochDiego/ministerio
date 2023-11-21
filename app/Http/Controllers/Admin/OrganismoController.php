@@ -9,6 +9,14 @@ use App\Http\Requests\OrganismoRequest;
 class OrganismoController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:admin.organismos.index')->only('index');
+        $this->middleware('can:admin.organismos.create')->only('create','store');
+        $this->middleware('can:admin.organismos.edit')->only('edit','update');
+        $this->middleware('can:admin.organismos.delete')->only('delete');
+    }
+
     public function index()
     {
         return view('admin.organismos.index');

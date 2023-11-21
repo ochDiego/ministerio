@@ -7,9 +7,11 @@ use App\Http\Controllers\Admin\InstitucioneController;
 use App\Http\Controllers\Admin\TemaController;
 use App\Http\Controllers\Admin\TiposDocumentoController;
 use App\Http\Controllers\Admin\DocumentoController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RoleController;
 
 
-Route::get('', [HomeController::class, 'index'])->name('admin.home');
+Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
 Route::resource('documentos', DocumentoController::class)->except('destroy')->names('admin.documentos');
 
@@ -30,3 +32,7 @@ Route::get('temas/{tema}/eliminar', [TemaController::class, 'delete'])->name('ad
 Route::resource('tiposdocumentos', TiposDocumentoController::class)->except('show','destroy')->names('admin.tiposdocumentos');
 
 Route::get('tiposdocumentos/{tiposdocumento}/eliminar', [TiposDocumentoController::class, 'delete'])->name('admin.tiposdocumentos.delete');
+
+Route::resource('usuarios', UserController::class)->only('index','edit','update')->parameters(['usuarios' => 'user'])->names('admin.usuarios');
+
+Route::resource('roles', RoleController::class)->except('show')->names('admin.roles');

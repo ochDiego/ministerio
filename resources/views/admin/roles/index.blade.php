@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Documentos')
+@section('title', 'Roles')
 
 @section('content_header')
 
-    @can('admin.documentos.create')
-        <a class="btn btn-primary float-right" href="{{ route('admin.documentos.create') }}" role="button">
-            Nuevo documento
+    @can('admin.roles.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.roles.create') }}" role="button">
+            Nuevo rol
         </a>
     @endcan
 
-    <h1>Lista de documentos</h1>
+    <h1>Lista de roles</h1>
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    @livewire('admin.documentos-index')
+    @livewire('admin.roles-index')
 @stop
 
 @section('css')

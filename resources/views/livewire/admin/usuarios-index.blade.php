@@ -3,31 +3,36 @@
         <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
     </div>
 
-    @if ($tiposDocumentos->count())
+    @if ($usuarios->count())
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Email</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tiposDocumentos as $tiposdocumento)
+                    @foreach ($usuarios as $user)
                         <tr>
-                            <td>{{ $tiposdocumento->nombre }}</td>
-                            <td width="10">
-                                @can('admin.tiposdocumentos.edit')
-                                    <a class="btn btn-info btn-sm" href="{{ route('admin.tiposdocumentos.edit',$tiposdocumento) }}" role="button">
-                                        Editar
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td width="130">
+                                @can('admin.users.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.usuarios.edit',$user) }}" role="button">
+                                        Asignar rol/es
                                     </a>
                                 @endcan
                             </td>
                             <td width="10">
-                                @can('admin.tiposdocumentos.delete')
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.tiposdocumentos.delete',$tiposdocumento) }}" role="button">
-                                        Eliminar
-                                    </a>
+                                @can('admin.users.delete')
+                                    <form action="{{route('admin.usuarios.destroy',$user)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 @endcan
                             </td>
                         </tr>
@@ -37,7 +42,7 @@
         </div>
 
         <div class="card-footer">
-            {{ $tiposDocumentos->links() }}
+            {{ $usuarios->links() }}
         </div>
     @else
         <div class="card-body text-center">
@@ -45,4 +50,3 @@
         </div>
     @endif
 </div>
-

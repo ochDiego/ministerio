@@ -81,12 +81,18 @@
                             <td>{{ $documento->fecha_suscripcion }}</td>
                             <td>{{ $documento->tema->nombre }}</td>
                             <td width="90">
-                                <a class="btn btn-secondary btn-sm" href="{{ route('admin.documentos.show',$documento) }}" role="button">Ver más</a>
+                                @can('admin.documentos.show')
+                                    <a class="btn btn-secondary btn-sm" href="{{ route('admin.documentos.show',$documento) }}" role="button">
+                                        Ver más
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.documentos.edit',$documento) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.documentos.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.documentos.edit',$documento) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

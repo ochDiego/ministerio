@@ -17,14 +17,18 @@
                         <tr>
                             <td>{{ $tema->nombre }}</td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.temas.edit',$tema) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.temas.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.temas.edit',$tema) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <a class="btn btn-danger btn-sm" href="{{ route('admin.temas.delete',$tema) }}" role="button">
-                                    Eliminar
-                                </a>
+                                @can('admin.temas.delete')
+                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.temas.delete',$tema) }}" role="button">
+                                        Eliminar
+                                    </a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

@@ -19,11 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('institucione_id');
             $table->unsignedBigInteger('vigencia_id');
             $table->unsignedBigInteger('tema_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
 
-           
             
-
             $table->string('fecha_suscripcion',12);
             $table->string('archivo')->nullable();
 

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(RoleSeeder::class);
+
         Institucione::factory(10)->create();
         Organismo::factory(10)->create();
         Tema::factory(10)->create();

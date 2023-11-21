@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.organismos.create') }}" role="button">
-        Nueva institución
-    </a>
+    @can('admin.organismos.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.organismos.create') }}" role="button">
+            Nueva institución
+        </a>
+    @endcan
 
     <h1>Lista de instituciones (1ra)</h1>
 @stop

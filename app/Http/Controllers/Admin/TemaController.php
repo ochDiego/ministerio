@@ -9,6 +9,14 @@ use App\Http\Requests\TemaRequest;
 class TemaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:admin.temas.index')->only('index');
+        $this->middleware('can:admin.temas.create')->only('create','store');
+        $this->middleware('can:admin.temas.edit')->only('edit','update');
+        $this->middleware('can:admin.temas.delete')->only('delete');
+    }
+
     public function index()
     {
         return view('admin.temas.index');

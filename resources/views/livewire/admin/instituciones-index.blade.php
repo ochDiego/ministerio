@@ -19,14 +19,18 @@
                             <td>{{ $institucione->nombre }}</td>
                             <td>{{ $institucione->representante }}</td>
                             <td width="10">
-                                <a class="btn btn-info btn-sm" href="{{ route('admin.instituciones.edit',$institucione) }}" role="button">
-                                    Editar
-                                </a>
+                                @can('admin.instituciones.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.instituciones.edit',$institucione) }}" role="button">
+                                        Editar
+                                    </a>
+                                @endcan
                             </td>
                             <td width="10">
-                                <a class="btn btn-danger btn-sm" href="{{ route('admin.instituciones.delete',$institucione) }}" role="button">
-                                    Eliminar
-                                </a>
+                                @can('admin.instituciones.delete')
+                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.instituciones.delete',$institucione) }}" role="button">
+                                        Eliminar
+                                    </a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

@@ -1,16 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Documentos')
+@section('title', 'Usuarios')
 
 @section('content_header')
-
-    @can('admin.documentos.create')
-        <a class="btn btn-primary float-right" href="{{ route('admin.documentos.create') }}" role="button">
-            Nuevo documento
-        </a>
-    @endcan
-
-    <h1>Lista de documentos</h1>
+    <h1>Lista de usuarios</h1>
 @stop
 
 @section('content')
@@ -21,7 +14,7 @@
         </div>
     @endif
 
-    @livewire('admin.documentos-index')
+    @livewire('admin.usuarios-index')
 @stop
 
 @section('css')

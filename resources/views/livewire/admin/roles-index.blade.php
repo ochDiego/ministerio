@@ -3,7 +3,7 @@
         <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
     </div>
 
-    @if ($tiposDocumentos->count())
+    @if ($roles->count())
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -13,21 +13,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tiposDocumentos as $tiposdocumento)
+                    @foreach ($roles as $role)
                         <tr>
-                            <td>{{ $tiposdocumento->nombre }}</td>
+                            <td>{{ $role->name }}</td>
                             <td width="10">
-                                @can('admin.tiposdocumentos.edit')
-                                    <a class="btn btn-info btn-sm" href="{{ route('admin.tiposdocumentos.edit',$tiposdocumento) }}" role="button">
+                                @can('admin.roles.edit')
+                                    <a class="btn btn-info btn-sm" href="{{ route('admin.roles.edit',$role) }}" role="button">
                                         Editar
                                     </a>
                                 @endcan
                             </td>
                             <td width="10">
-                                @can('admin.tiposdocumentos.delete')
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.tiposdocumentos.delete',$tiposdocumento) }}" role="button">
-                                        Eliminar
-                                    </a>
+                                @can('admin.roles.delete')
+                                    <form action="{{route('admin.roles.destroy',$role)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 @endcan
                             </td>
                         </tr>
@@ -37,7 +40,7 @@
         </div>
 
         <div class="card-footer">
-            {{ $tiposDocumentos->links() }}
+            {{ $roles->links() }}
         </div>
     @else
         <div class="card-body text-center">
@@ -45,4 +48,3 @@
         </div>
     @endif
 </div>
-

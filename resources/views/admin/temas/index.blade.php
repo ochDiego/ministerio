@@ -4,9 +4,11 @@
 
 @section('content_header')
 
-    <a class="btn btn-primary float-right" href="{{ route('admin.temas.create') }}" role="button">
-        Nuevo tema
-    </a>
+    @can('admin.temas.create')
+        <a class="btn btn-primary float-right" href="{{ route('admin.temas.create') }}" role="button">
+            Nuevo tema
+        </a>
+    @endcan
 
     <h1>Lista de temas</h1>
 @stop

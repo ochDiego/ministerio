@@ -8,6 +8,13 @@ use App\Models\TiposDocumento;
 
 class TiposDocumentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.tiposdocumentos.index')->only('index');
+        $this->middleware('can:admin.tiposdocumentos.create')->only('create','store');
+        $this->middleware('can:admin.tiposdocumentos.edit')->only('edit','update');
+        $this->middleware('can:admin.tiposdocumentos.delete')->only('delete');
+    }
 
     public function index()
     {
