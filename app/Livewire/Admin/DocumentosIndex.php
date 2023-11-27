@@ -29,10 +29,10 @@ class DocumentosIndex extends Component
 
     public function mount()
     {
-        $this->organismos = Organismo::select('id','nombre')->get();
-        $this->instituciones = Institucione::select('id','nombre')->get();
-        $this->tiposDocumentos = TiposDocumento::select('id','nombre')->get();
-        $this->temas = Tema::select('id','nombre')->get();
+        $this->organismos = Organismo::select('id','nombre')->orderBy('nombre','asc')->get();
+        $this->instituciones = Institucione::select('id','nombre')->orderBy('nombre','asc')->get();
+        $this->tiposDocumentos = TiposDocumento::select('id','nombre')->orderBy('nombre','asc')->get();
+        $this->temas = Tema::select('id','nombre')->orderBy('nombre','asc')->get();
     }
 
     public function updatingOrganismoFilter()
@@ -79,6 +79,8 @@ class DocumentosIndex extends Component
                                     $query->where('tema_id', $this->temaFilter);
                                 })
                                 ->with('institucione','organismo','tema','tiposDocumento')
+                                ->where('activo',true)
+                                ->orderByDesc('id')
                                 ->paginate(30);
 
         return view('livewire.admin.documentos-index',compact('documentos'));

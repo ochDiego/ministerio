@@ -39,6 +39,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('admin.usuarios.index')->with('info','Rol eliminado satisfactoriamente');
+        return back();
     }
 }

@@ -24,7 +24,7 @@ class TiposDocumentoRequest extends FormRequest
         $tiposdocumento = $this->route()->parameter('tiposdocumento');
 
         $rules = [
-            'nombre' => 'required|string|min:3|max:100',
+            'nombre' => 'required|string|min:3|max:255',
             'slug' => 'required|unique:tipos_documentos',
         ];
 

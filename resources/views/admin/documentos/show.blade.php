@@ -54,6 +54,7 @@
             <p class="h5">Documento registrado por:</p>
             <p class="form-control">{{ auth()->user()->name }}</p>
             <p class="form-control">{{ auth()->user()->email }}</p>
+            <p class="form-control">{{ $documento->created_at->diffForHumans() }}</p>
         </div>
     </div>
 @stop

@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
 
-        Institucione::factory(10)->create();
+        /* Institucione::factory(10)->create();
         Organismo::factory(10)->create();
         Tema::factory(10)->create();
         TiposDocumento::factory(10)->create();
         Vigencia::factory(2)->create();
-        Documento::factory(70)->create();
+        Documento::factory(70)->create(); */
         
         $this->call(UserSeeder::class);
     }

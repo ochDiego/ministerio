@@ -31,7 +31,7 @@ class TemaController extends Controller
     {
         $tema = Tema::create($request->validated());
 
-        return redirect()->route('admin.temas.edit',$tema)->with('info','Tema creado satisfactoriamente');
+        return redirect()->route('admin.temas.edit',$tema)->with('info','Tema registrado satisfactoriamente');
     }
 
     public function edit(Tema $tema)
@@ -46,12 +46,12 @@ class TemaController extends Controller
         return redirect()->route('admin.temas.edit',$tema)->with('info','Tema actualizado satisfactoriamente');
     }
 
-    public function delete(Tema $tema)
+    public function destroy(Tema $tema)
     {
         $tema->update([
             'activo' => false,
         ]);
 
-        return redirect()->route('admin.temas.index')->with('info','Tema eliminado satisfactoriamente');
+        return back();
     }
 }

@@ -28,7 +28,7 @@ class OrganismosIndex extends Component
                                 })
                                 ->where('activo',true)
                                 ->orderByDesc('id')
-                                ->paginate(5);
+                                ->paginate(25);
 
         return view('livewire.admin.organismos-index',compact('organismos'));
     }

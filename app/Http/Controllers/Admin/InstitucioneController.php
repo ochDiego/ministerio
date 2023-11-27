@@ -46,12 +46,12 @@ class InstitucioneController extends Controller
         return redirect()->route('admin.instituciones.edit',$institucione)->with('info','Institución actualizada satisfactoriamente');
     }
 
-    public function delete(Institucione $institucione)
+    public function destroy(Institucione $institucione)
     {
         $institucione->update([
             'activo' => false,
         ]);
 
-        return redirect()->route('admin.instituciones.index')->with('info','Institución eliminada satisfactoriamente');
+        return back();
     }
 }

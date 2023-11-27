@@ -46,12 +46,12 @@ class OrganismoController extends Controller
         return redirect()->route('admin.organismos.edit',$organismo)->with('info','Institución actualizada satisfactoriamente');
     }
 
-    public function delete(Organismo $organismo)
+    public function destroy(Organismo $organismo)
     {
         $organismo->update([
             'activo' => false,
         ]);
 
-        return redirect()->route('admin.organismos.index')->with('info','Institución eliminada satisfactoriamente');
+        return back();
     }
 }

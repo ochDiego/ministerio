@@ -23,7 +23,7 @@ class RolesIndex extends Component
     {
         $roles = Role::where('name','like','%' . $this->search . '%')
                         ->orderByDesc('id')
-                        ->paginate(1);
+                        ->paginate(25);
 
         return view('livewire.admin.roles-index',compact('roles'));
     }

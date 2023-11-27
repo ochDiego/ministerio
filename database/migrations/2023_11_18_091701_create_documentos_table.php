@@ -17,12 +17,12 @@ return new class extends Migration
             $table->unsignedBigInteger('tipos_documento_id');
             $table->unsignedBigInteger('organismo_id');
             $table->unsignedBigInteger('institucione_id');
-            $table->unsignedBigInteger('vigencia_id');
-            $table->unsignedBigInteger('tema_id');
+            $table->unsignedBigInteger('vigencia_id')->nullable();
+            $table->unsignedBigInteger('tema_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
 
             
-            $table->string('fecha_suscripcion',12);
+            $table->string('fecha_suscripcion',12)->nullable();
             $table->string('archivo')->nullable();
 
             $table->boolean('activo')->default(true);

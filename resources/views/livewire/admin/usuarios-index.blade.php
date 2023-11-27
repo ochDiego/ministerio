@@ -10,7 +10,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Email</th>
-                        <th colspan="2"></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,16 +25,16 @@
                                     </a>
                                 @endcan
                             </td>
-                            <td width="10">
-                                @can('admin.users.delete')
+                            {{-- <td width="10"> --}}
+                                {{-- @can('admin.users.delete')
                                     <form action="{{route('admin.usuarios.destroy',$user)}}" method="post">
                                         @csrf
                                         @method('DELETE')
 
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
-                                @endcan
-                            </td>
+                                @endcan --}}
+                            {{-- </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

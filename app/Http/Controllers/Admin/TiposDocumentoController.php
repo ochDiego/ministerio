@@ -30,7 +30,7 @@ class TiposDocumentoController extends Controller
     {
         $tiposdocumento = TiposDocumento::create($request->validated());
 
-        return redirect()->route('admin.tiposdocumentos.edit',$tiposdocumento)->with('info','Tipo de documento creado satisfactoriamente');
+        return redirect()->route('admin.tiposdocumentos.edit',$tiposdocumento)->with('info','Tipo de documento registrado satisfactoriamente');
     }
 
     public function edit(TiposDocumento $tiposdocumento)
@@ -45,12 +45,12 @@ class TiposDocumentoController extends Controller
         return redirect()->route('admin.tiposdocumentos.edit',$tiposdocumento)->with('info','Tipo de documento actualizado satisfactoriamente');
     }
 
-    public function delete(TiposDocumento $tiposdocumento)
+    public function destroy(TiposDocumento $tiposdocumento)
     {
         $tiposdocumento->update([
             'activo' => false,
         ]);
 
-        return redirect()->route('admin.tiposdocumentos.index')->with('info','Tipo de documento eliminado satisfactoriamente');
+        return back();
     }
 }

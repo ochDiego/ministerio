@@ -104,6 +104,10 @@ class DocumentoController extends Controller
 
     public function delete(Documento $documento)
     {
-        //
+        $documento->update([
+            'activo' => false,
+        ]);
+
+        return redirect()->route('admin.documentos.index')->with('info','Documento eliminado satisfactoriamente');
     }
 }

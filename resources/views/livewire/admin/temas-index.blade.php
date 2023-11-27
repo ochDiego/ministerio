@@ -25,9 +25,12 @@
                             </td>
                             <td width="10">
                                 @can('admin.temas.delete')
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.temas.delete',$tema) }}" role="button">
-                                        Eliminar
-                                    </a>
+                                    <form action="{{ route('admin.temas.destroy',$tema) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 @endcan
                             </td>
                         </tr>

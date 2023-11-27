@@ -27,9 +27,12 @@
                             </td>
                             <td width="10">
                                 @can('admin.instituciones.delete')
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.instituciones.delete',$institucione) }}" role="button">
-                                        Eliminar
-                                    </a>
+                                    <form action="{{ route('admin.instituciones.destroy',$institucione) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
                                 @endcan
                             </td>
                         </tr>
