@@ -51,6 +51,6 @@ class TiposDocumentoController extends Controller
             'activo' => false,
         ]);
 
-        return back();
+        return back()->with('info','Tipo de documento eliminado satisfactoriamente');
     }
 }

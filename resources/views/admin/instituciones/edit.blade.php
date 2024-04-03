@@ -25,7 +25,7 @@
 
                 @include('admin.instituciones.partials.form')
 
-                {!! Form::submit('Actualizar institución', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar institución', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

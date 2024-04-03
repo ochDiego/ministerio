@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
+        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar tema...">
     </div>
 
     @if ($temas->count())
@@ -8,7 +8,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>NOMBRE</th>
+                        <th>REGISTRADO</th>
+                        <th>MODIFICADO</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -16,6 +18,8 @@
                     @foreach ($temas as $tema)
                         <tr>
                             <td>{{ $tema->nombre }}</td>
+                            <td>{{ $tema->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $tema->updated_at->format('d/m/Y') }}</td>
                             <td width="10">
                                 @can('admin.temas.edit')
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.temas.edit',$tema) }}" role="button">
@@ -23,7 +27,7 @@
                                     </a>
                                 @endcan
                             </td>
-                            <td width="10">
+                            {{-- <td width="10">
                                 @can('admin.temas.delete')
                                     <form action="{{ route('admin.temas.destroy',$tema) }}" method="post">
                                         @csrf
@@ -32,7 +36,7 @@
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
                                 @endcan
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

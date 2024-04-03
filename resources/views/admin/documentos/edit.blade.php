@@ -25,7 +25,7 @@
 
                 @include('admin.documentos.partials.form')
 
-                {!! Form::submit('Actualizar documento', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar documento', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

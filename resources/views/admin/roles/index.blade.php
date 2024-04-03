@@ -14,6 +14,13 @@
 @stop
 
 @section('content')
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
+
     @livewire('admin.roles-index')
 @stop
 
@@ -33,7 +40,7 @@
                 event.preventDefault();
 
                 Swal.fire({
-                    title: "¿Está seguro?",
+                    title: "¿Está seguro que desea eliminar este registro?",
                     text: "¡No podrás revertir esto!",
                     icon: "warning",
                     showCancelButton: true,
@@ -44,12 +51,12 @@
                             if (result.isConfirmed) {
 
                                 form.submit();
-
+/* 
                                 Swal.fire({
                                 title: "¡Eliminado!",
                                 text: "El registro ha sido eliminado.",
                                 icon: "success"
-                                });
+                                }); */
                             }
                         });
             })

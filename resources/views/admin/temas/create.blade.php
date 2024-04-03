@@ -13,7 +13,7 @@
 
                 @include('admin.temas.partials.form')
 
-                {!! Form::submit('Registrar tema', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Registrar tema', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

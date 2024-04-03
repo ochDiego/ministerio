@@ -20,7 +20,7 @@
 
                 @include('admin.roles.partials.form')
 
-                {!! Form::submit('Actualizar rol', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar rol', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

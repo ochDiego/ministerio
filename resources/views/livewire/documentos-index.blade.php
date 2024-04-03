@@ -3,7 +3,7 @@
     
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Ministerio de Educación de la provincia de San Juan
+            Digestos. Ministerio de Educación de la provincia de San Juan.
         </h2>
     </x-slot>
 
@@ -71,9 +71,10 @@
 
             </div>
 
+
             @if ($documentos->count())
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Tipo de doc.

@@ -31,11 +31,11 @@ class DocumentoRequest extends FormRequest
             'tema_id' => 'required|integer',
             'vigencia_id' => 'required|integer',
             'fecha_suscripcion' => 'required|numeric|min_digits:4|max_digits:4',
-            'archivo' => 'required|mimes:pdf|max:2048'
+            'archivo' => 'nullable|mimes:pdf|max:4096',
         ];
 
         if($documento){
-            $rules['archivo'] = 'mimes:pdf|max:1024';
+            $rules['archivo'] = 'mimes:pdf|max:4096';
         }
 
         return $rules;
@@ -52,7 +52,7 @@ class DocumentoRequest extends FormRequest
             'vigencia_id.required' => 'Debe seleccionar la vigencia',
             'fecha_suscripcion.required' => 'Debe ingresar el año',
             'archivo.required' => 'Debe adjuntar el documento digital',
-            'archivo.max' => 'El peso del archivo debe ser inferior a 2mb',
+            'archivo.max' => 'El peso del archivo debe ser inferior a 4mb',
         ];
     }
 }

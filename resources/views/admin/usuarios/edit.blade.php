@@ -39,7 +39,7 @@
                 </div>
 
 
-                {!! Form::submit('Asignar rol/es', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Asignar rol/es', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
         </div>
     </div>

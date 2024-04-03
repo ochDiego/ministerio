@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
+        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar rol...">
     </div>
 
     @if ($roles->count())
@@ -8,7 +8,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>NOMBRE</th>
+                        <th>REGISTRADO</th>
+                        <th>MODIFICADO</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -16,14 +18,16 @@
                     @foreach ($roles as $role)
                         <tr>
                             <td>{{ $role->name }}</td>
-                            <td width="10">
+                            <td>{{ $role->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $role->updated_at->format('d/m/Y') }}</td>
+                            <td width="10px">
                                 @can('admin.roles.edit')
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.roles.edit',$role) }}" role="button">
                                         Editar
                                     </a>
                                 @endcan
                             </td>
-                            <td width="10">
+                            <td width="10px">
                                 @can('admin.roles.delete')
                                     <form action="{{route('admin.roles.destroy',$role)}}" method="post">
                                         @csrf

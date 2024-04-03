@@ -26,7 +26,7 @@
                 event.preventDefault();
 
                 Swal.fire({
-                    title: "¿Está seguro?",
+                    title: "¿Está seguro que desea eliminar este registro?",
                     text: "¡No podrás revertir esto!",
                     icon: "warning",
                     showCancelButton: true,

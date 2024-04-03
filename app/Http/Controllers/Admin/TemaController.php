@@ -52,6 +52,6 @@ class TemaController extends Controller
             'activo' => false,
         ]);
 
-        return back();
+        return back()->with('info','Tema eliminado satisfactoriamente');
     }
 }

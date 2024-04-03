@@ -28,7 +28,7 @@
 
                 @include('admin.tiposdocumentos.partials.form')
 
-                {!! Form::submit('Actualizar tipo de documento', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar tipo de documento', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

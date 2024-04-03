@@ -13,7 +13,7 @@
 
                 @include('admin.organismos.partials.form')
 
-                {!! Form::submit('Registrar institución', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Registrar institución', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

@@ -59,6 +59,6 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        return back();
+        return back()->with('info','Rol eliminado satisfactoriamente');
     }
 }

@@ -94,8 +94,8 @@ class DocumentoController extends Controller
                     'archivo' => $url,
                 ]);
             }else{
-                /* $documento->archivo = $url;
-                $documento->save(); */
+                $documento->archivo = $url;
+                $documento->save();
             }
         }
 

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
+        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar institución...">
     </div>
 
     @if ($instituciones->count())
@@ -8,8 +8,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Representante</th>
+                        <th>NOMBRE</th>
+                        <th>REPRESENTANTE</th>
+                        <th>REGISTRADO</th>
+                        <th>MODIFICADO</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -18,6 +20,8 @@
                         <tr>
                             <td>{{ $institucione->nombre }}</td>
                             <td>{{ $institucione->representante }}</td>
+                            <td>{{ $institucione->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $institucione->updated_at->format('d/m/Y') }}</td>
                             <td width="10">
                                 @can('admin.instituciones.edit')
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.instituciones.edit',$institucione) }}" role="button">
@@ -25,7 +29,7 @@
                                     </a>
                                 @endcan
                             </td>
-                            <td width="10">
+                            {{-- <td width="10">
                                 @can('admin.instituciones.delete')
                                     <form action="{{ route('admin.instituciones.destroy',$institucione) }}" method="post">
                                         @csrf
@@ -34,7 +38,7 @@
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                     </form>
                                 @endcan
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

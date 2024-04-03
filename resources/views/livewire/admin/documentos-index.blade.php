@@ -60,13 +60,13 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Tipo de doc.</th>
-                        <th>Institución</th>
-                        <th>Representante</th>
-                        <th>Institución</th>
-                        <th>Representante</th>
-                        <th>Año</th>
-                        <th>Tema</th>
+                        <th>TIPO DE DOC.</th>
+                        <th>INSTITUCIÓN</th>
+                        <th>REPRESENTANTE</th>
+                        <th>INSTITUCIÓN</th>
+                        <th>REPRESENTANTE</th>
+                        <th>AÑO</th>
+                        <th>TEMA</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -80,14 +80,14 @@
                             <td>{{ $documento->institucione->representante }}</td>
                             <td>{{ $documento->fecha_suscripcion }}</td>
                             <td>{{ $documento->tema->nombre }}</td>
-                            <td width="90">
+                            <td width="90px">
                                 @can('admin.documentos.show')
                                     <a class="btn btn-secondary btn-sm" href="{{ route('admin.documentos.show',$documento) }}" role="button">
                                         Ver más
                                     </a>
                                 @endcan
                             </td>
-                            <td width="10">
+                            <td width="10px">
                                 @can('admin.documentos.edit')
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.documentos.edit',$documento) }}" role="button">
                                         Editar

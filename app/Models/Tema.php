@@ -12,6 +12,11 @@ class Tema extends Model
 
     protected $fillable = ['nombre','slug','activo'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function documentos():HasMany
     {
         return $this->hasMany(Documento::class);

@@ -13,7 +13,7 @@
 
                 @include('admin.documentos.partials.form')
 
-                {!! Form::submit('Registrar documento', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Registrar documento', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

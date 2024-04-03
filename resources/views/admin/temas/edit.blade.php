@@ -25,7 +25,7 @@
 
                 @include('admin.temas.partials.form')
 
-                {!! Form::submit('Actualizar tema', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Actualizar tema', ['class' => 'btn btn-success']) !!}
 
             {!! Form::close() !!}
         </div>

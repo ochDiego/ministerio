@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar">
+        <input type="text" wire:model.live="search" class="form-control w-full" placeholder="Búscar usuario...">
     </div>
 
     @if ($usuarios->count())
@@ -8,8 +8,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
+                        <th>NOMBRE</th>
+                        <th>EMAIL</th>
+                        <th>REGISTRADO</th>
+                        <th>MODIFICADO</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -18,6 +20,8 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $user->updated_at->format('d/m/Y') }}</td>
                             <td width="130">
                                 @can('admin.users.edit')
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.usuarios.edit',$user) }}" role="button">

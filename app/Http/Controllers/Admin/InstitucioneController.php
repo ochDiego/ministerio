@@ -52,6 +52,6 @@ class InstitucioneController extends Controller
             'activo' => false,
         ]);
 
-        return back();
+        return back()->with('info','Institución eliminada satisfactoriamente');
     }
 }
